@@ -3,218 +3,165 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🌍 Open World Game</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPEN WORLD GAME</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Segoe UI,Arial}
-body{min-height:100vh;background:linear-gradient(135deg,#0b1a2e,#1b2d4e,#0b1a2e);display:flex;justify-content:center;align-items:center;padding:20px;color:#edf5ff}
-.container{width:100%;max-width:1100px;background:#0f192dcc;backdrop-filter:blur(16px);border:1px solid #82b4ff66;border-radius:35px;padding:30px;box-shadow:0 25px 60px #0009,0 0 35px #2b8ae255}
-h1{text-align:center;font-size:clamp(28px,5vw,42px);background:linear-gradient(135deg,#7dc9ff,#6b9dff,#66d1ff);background-clip:text;color:transparent;font-weight:900}
-.subtitle{text-align:center;color:#b8d4ff;border-bottom:1px dashed #82b4ff66;padding:10px 0 20px;margin-bottom:20px}
-.section{background:#14284688;border:1px solid #7ab4ff44;border-radius:22px;padding:20px;margin:18px 0}
-.center{text-align:center}
-button{border:0;border-radius:40px;padding:13px 23px;font-weight:800;cursor:pointer;transition:.2s}
-button:hover{transform:translateY(-2px);filter:brightness(1.15)}
-button:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.settings-btn{background:linear-gradient(135deg,#ff9800,#f44336);color:white}
-.auto-btn{background:linear-gradient(135deg,#6b9dff,#7dc9ff);color:#10213d;font-size:20px;padding:17px 35px;box-shadow:0 0 25px #6b9dff66}
-.offer-btn{background:linear-gradient(135deg,#1e3c6b,#152a48);color:white;border:1px solid #4e9ddd88;font-size:18px;padding:18px 35px;box-shadow:0 8px 20px #0005}
-.small-btn{background:#1e4a72;color:white;margin:4px}
-.restore-btn{background:#bd4053;color:white}
-.status-btn{background:#087e9c;color:white}
-.sync-btn{background:#3458a1;color:white}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
-.stat{background:#0b1a2e;border:1px solid #4778a955;border-radius:16px;text-align:center;padding:17px}
-.stat span{display:block;color:#b8d4ff;font-size:13px}
-.stat strong{display:block;font-size:30px;color:#ffd166;margin-top:7px}
-.status-text{color:#ffd166;margin-top:13px;min-height:24px;overflow-wrap:anywhere}
-.offer-result{margin-top:18px;padding:15px;border-radius:14px;background:#0b1a2e;overflow-wrap:anywhere;display:none}
-.offer-result a{color:#7dc9ff}
-input[type=password]{width:100%;padding:12px;border-radius:10px;border:1px solid #7ab4ff66;background:#0b1a2e;color:white;margin:10px 0}
-.admin-title{color:#aad4ff;margin-bottom:10px}
-.admin-actions{display:flex;flex-wrap:wrap;gap:8px}
-.note{font-size:12px;color:#b8d4ff;margin-top:12px}
-.footer{text-align:center;color:#9bb8dc;padding-top:18px}
-@media(max-width:600px){.container{padding:18px;border-radius:22px}.stats{gap:7px}.stat{padding:12px 5px}.stat strong{font-size:23px}.auto-btn{font-size:16px;padding:14px 20px}}
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;padding:25px 14px;
+ display:flex;align-items:center;justify-content:center;
+ font-family:Arial,sans-serif;color:#fff;
+ background:radial-gradient(circle at top,#163b75,#07152e 65%,#030a18);
+}
+.container{
+ width:100%;max-width:760px;padding:30px;
+ border:1px solid #ffffff24;border-radius:25px;
+ background:linear-gradient(145deg,#102b50eF,#071a35f2);
+ box-shadow:0 20px 70px #0008;
+}
+h1{text-align:center;font-size:34px;margin:5px 0 8px;letter-spacing:2px}
+.subtitle{text-align:center;color:#a9c8ef;margin-bottom:28px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
+.stat{
+ text-align:center;padding:18px 8px;border-radius:15px;
+ background:#ffffff0d;border:1px solid #ffffff18
+}
+.stat strong{display:block;font-size:27px;margin-bottom:7px}
+.stat span{font-size:12px;color:#a9c8ef}
+button{
+ width:100%;border:0;border-radius:13px;padding:17px 12px;
+ font-weight:800;font-size:15px;cursor:pointer;
+ transition:.2s;margin-top:12px
+}
+button:hover{filter:brightness(1.13);transform:translateY(-1px)}
+button:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.offer-btn{background:linear-gradient(90deg,#00d4ff,#287bff);color:#06162c}
+.auto-btn{background:linear-gradient(90deg,#12df9b,#00a978);color:#03251b}
+.status-btn{background:#ffffff12;color:white;border:1px solid #ffffff25}
+#message{
+ margin-top:20px;padding:15px;border-radius:12px;
+ background:#ffffff0d;text-align:center;overflow-wrap:anywhere;
+ color:#d7eaff;line-height:1.6;min-height:52px
+}
+#offerLink{display:none;margin-top:12px;text-align:center}
+#offerLink a{color:#55dfff;overflow-wrap:anywhere}
+.footer{text-align:center;color:#7695bb;font-size:12px;margin-top:24px}
+@media(max-width:520px){
+ .container{padding:21px 16px}
+ h1{font-size:27px}
+ .stats{gap:7px}
+ .stat strong{font-size:22px}
+ .stat span{font-size:10px}
+}
 </style>
 </head>
 <body>
-<div class="container">
+<main class="container">
+ <h1>🌍 OPEN WORLD GAME</h1>
+ <div class="subtitle">Get your unique offer link</div>
 
-<h1><i class="fas fa-globe"></i> OPEN WORLD GAME <i class="fas fa-gamepad"></i></h1>
-<div class="subtitle">🌍 UNIQUE OFFER SYSTEM · ONE LINK PER VISITOR</div>
+ <section class="stats">
+  <div class="stat"><strong id="total">—</strong><span>TOTAL LINKS</span></div>
+  <div class="stat"><strong id="available">—</strong><span>AVAILABLE</span></div>
+  <div class="stat"><strong id="claimed">—</strong><span>CLAIMED</span></div>
+ </section>
 
-<div class="center">
-<button class="settings-btn" onclick="showPopupInfo()">
-<i class="fas fa-cog"></i> POPUP SETTINGS
-</button>
-<p class="note">Allow popups if you want the assigned offer to open in a new tab.</p>
-</div>
+ <button class="offer-btn" id="offerButton" onclick="getOffer()">🎁 GET YOUR OFFER</button>
+ <button class="auto-btn" id="autoButton" onclick="autoOffer()">🚀 START AUTO CLICK</button>
+ <button class="status-btn" onclick="checkStatus()">↻ REFRESH STATUS</button>
 
-<div class="section center">
-<h2 style="color:#aad4ff;margin-bottom:15px">🚀 AUTO CLICK</h2>
-<button class="auto-btn" id="autoBtn" onclick="autoOffer()">
-<i class="fas fa-bolt"></i> START AUTO CLICK
-</button>
-<div class="status-text" id="autoStatus">Ready · Waiting for your action</div>
-</div>
+ <div id="message">Click GET YOUR OFFER to receive one unique link.</div>
+ <div id="offerLink"></div>
 
-<div class="section">
-<div class="stats">
-<div class="stat"><span><i class="fas fa-layer-group"></i> TOTAL LINKS</span><strong id="total">—</strong></div>
-<div class="stat"><span><i class="fas fa-circle-check"></i> AVAILABLE</span><strong id="available">—</strong></div>
-<div class="stat"><span><i class="fas fa-check-double"></i> CLAIMED</span><strong id="used">—</strong></div>
-</div>
-<div class="center">
-<button class="offer-btn" id="offerBtn" onclick="getOffer()">
-<i class="fas fa-gift"></i> GET YOUR OFFER
-</button>
-<div class="offer-result" id="result"></div>
-<div class="status-text" id="offerStatus">Your unique offer is waiting.</div>
-</div>
-</div>
-
-<div class="section">
-<h2 class="admin-title"><i class="fas fa-chart-line"></i> SYSTEM STATUS</h2>
-<div class="center">
-<button class="status-btn" onclick="checkStatus()"><i class="fas fa-signal"></i> STATUS</button>
-</div>
-<div class="status-text" id="systemStatus">Click Status to check system activity.</div>
-</div>
-
-<div class="section">
-<h2 class="admin-title"><i class="fas fa-lock"></i> ADMIN CONTROL</h2>
-<input type="password" id="adminKey" placeholder="Enter your ADMIN_KEY">
-<div class="admin-actions">
-<button class="small-btn" onclick="importLinks()">IMPORT LINKS</button>
-<button class="sync-btn" onclick="syncLinks()">SYNC GITHUB</button>
-<button class="restore-btn" onclick="restoreLinks()">RESTORE ALL</button>
-</div>
-<div class="status-text" id="adminStatus"></div>
-<p class="note">Admin key is used only for protected Worker requests. Never enter your GitHub token here.</p>
-</div>
-
-<div class="footer">🌍 OpenWorldGame · Powered by Cloudflare Worker</div>
-</div>
+ <div class="footer">OPEN WORLD GAME • Offer Distribution System</div>
+</main>
 
 <script>
-const API="https://openworldgame-api.golpomayakonna92.workers.dev";
-let assignedOffer="";
-let assigned=false;
+const API = "https://openworldgame-api.golpomayakonna92.workers.dev";
 
-function showPopupInfo(){
- alert("If the offer does not open, allow popups for this website in your browser settings.");
+let assigned = false;
+let assignedUrl = "";
+
+const message = document.getElementById("message");
+const offerLink = document.getElementById("offerLink");
+const offerButton = document.getElementById("offerButton");
+const autoButton = document.getElementById("autoButton");
+
+function showMessage(text){
+ message.textContent = text;
 }
 
-async function getOffer(){
- if(assigned){
-   document.getElementById("offerStatus").textContent="You already received your unique offer.";
-   return assignedOffer;
+async function apiRequest(path){
+ const response = await fetch(API + path);
+ const data = await response.json().catch(()=>({}));
+ if(!response.ok){
+  throw new Error(data.error || data.message || `HTTP ${response.status}`);
  }
- const btn=document.getElementById("offerBtn");
- btn.disabled=true;
- document.getElementById("offerStatus").textContent="⏳ Assigning your unique offer...";
- try{
-   const response=await fetch(API+"/api/offer");
-   const data=await response.json();
-   if(!response.ok||!data.success){
-     document.getElementById("offerStatus").textContent=data.message||"No offers available.";
-     return null;
-   }
-   assignedOffer=data.offer;
-   assigned=true;
-   document.getElementById("result").style.display="block";
-   document.getElementById("result").innerHTML=
-     '<p style="color:#ffd166;margin-bottom:8px">✅ YOUR OFFER IS READY</p>'+
-     '<a href="'+encodeURI(assignedOffer)+'" target="_blank" rel="noopener noreferrer">Open assigned offer</a>';
-   document.getElementById("offerStatus").textContent="Successfully assigned one unique link.";
-   btn.innerHTML='<i class="fas fa-check"></i> OFFER CLAIMED';
-   return assignedOffer;
- }catch(e){
-   document.getElementById("offerStatus").textContent="Connection error: "+e.message;
-   return null;
- }finally{
-   btn.disabled=false;
- }
-}
-
-async function autoOffer(){
- const btn=document.getElementById("autoBtn");
- btn.disabled=true;
- document.getElementById("autoStatus").textContent="⏳ Getting your offer...";
- try{
-   const link=await getOffer();
-   if(!link){
-     document.getElementById("autoStatus").textContent="No offer could be assigned.";
-     return;
-   }
-   const tab=window.open(link,"_blank","noopener,noreferrer");
-   document.getElementById("autoStatus").textContent=tab?
-     "✅ Your assigned offer was opened.":
-     "Popup blocked. Use the offer link shown above.";
- }finally{
-   btn.disabled=false;
- }
-}
-
-function adminHeaders(){
- const key=document.getElementById("adminKey").value.trim();
- if(!key)throw new Error("Enter ADMIN_KEY first.");
- return {"Authorization":"Bearer "+key,"Content-Type":"application/json"};
-}
-
-async function adminRequest(path,method="GET"){
- const response=await fetch(API+path,{method,headers:adminHeaders()});
- const data=await response.json();
- if(!response.ok||!data.success)throw new Error(data.error||data.message||"Request failed");
  return data;
 }
 
 async function checkStatus(){
- const box=document.getElementById("systemStatus");
- box.textContent="Checking database...";
  try{
-   const d=await adminRequest("/admin/status");
-   document.getElementById("total").textContent=d.total;
-   document.getElementById("available").textContent=d.available;
-   document.getElementById("used").textContent=d.used;
-   box.textContent="✅ System online · Database connected · Activity: "+d.activity;
- }catch(e){box.textContent="❌ "+e.message;}
+  const data = await apiRequest("/admin/status-public");
+  document.getElementById("total").textContent = data.total ?? "—";
+  document.getElementById("available").textContent = data.available ?? "—";
+  document.getElementById("claimed").textContent = data.used ?? "—";
+ }catch(error){
+  console.error(error);
+ }
 }
 
-async function importLinks(){
- const box=document.getElementById("adminStatus");
- box.textContent="Importing GitHub links...";
+async function getOffer(){
+ if(assigned){
+  showMessage("You have already received your offer on this page.");
+  return assignedUrl;
+ }
+
+ offerButton.disabled = true;
+ autoButton.disabled = true;
+ showMessage("Please wait. Getting your offer...");
+
  try{
-   const d=await adminRequest("/admin/import","POST");
-   box.textContent="✅ Import complete · Available received: "+d.available_received+
-     " · Used received: "+d.used_received+
-     " · Newly inserted: "+(d.inserted_available+d.inserted_used);
-   await checkStatus();
- }catch(e){box.textContent="❌ "+e.message;}
+  const data = await apiRequest("/api/offer");
+
+  if(!data.success || !data.url){
+   showMessage(data.error || "No offers available. Please try again later.");
+   return null;
+  }
+
+  assigned = true;
+  assignedUrl = data.url;
+
+  offerLink.style.display = "block";
+  offerLink.innerHTML = "";
+  const a = document.createElement("a");
+  a.href = assignedUrl;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  a.textContent = "OPEN YOUR OFFER";
+  offerLink.appendChild(a);
+
+  showMessage("Your unique offer is ready. Click OPEN YOUR OFFER.");
+  await checkStatus();
+  return assignedUrl;
+
+ }catch(error){
+  showMessage("❌ " + error.message);
+  return null;
+ }finally{
+  offerButton.disabled = false;
+  autoButton.disabled = false;
+ }
 }
 
-async function syncLinks(){
- const box=document.getElementById("adminStatus");
- box.textContent="Syncing GitHub files...";
- try{
-   const d=await adminRequest("/admin/sync","POST");
-   box.textContent="✅ GitHub sync complete · Available: "+d.available_written+
-     " · Used: "+d.used_written;
- }catch(e){box.textContent="❌ "+e.message;}
+async function autoOffer(){
+ const url = await getOffer();
+ if(url){
+  window.open(url, "_blank", "noopener,noreferrer");
+ }
 }
 
-async function restoreLinks(){
- if(!confirm("Restore ALL used links to addLink.txt?"))return;
- const box=document.getElementById("adminStatus");
- box.textContent="Restoring links...";
- try{
-   const d=await adminRequest("/admin/restore","POST");
-   box.textContent="✅ Restored "+d.restored+" links. GitHub files updated.";
-   await checkStatus();
- }catch(e){box.textContent="❌ "+e.message;}
-}
+checkStatus();
 </script>
 </body>
 </html>
