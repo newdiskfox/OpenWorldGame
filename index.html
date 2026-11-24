@@ -77,7 +77,7 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
 <div class="page">
   <header class="nav">
     <div class="brand"><div class="brand-mark">⚡</div><div>GAME<span style="color:var(--lime)">ZONE</span><small>PLAY • WIN • REPEAT</small></div></div>
-    <div class="nav-right"><span class="live"><i class="dot"></i> ● ONLINE NOW</span><button class="admin" id="adminIcon" aria-label="Admin access" title="Admin">⚙</button></div>
+    <div class="nav-right"><span class="live"><i class="dot"></i> ● ONLINE</span><button class="admin" id="adminIcon" aria-label="Admin access" title="Admin">⚙</button></div>
   </header>
 
   <section class="hero">
@@ -126,7 +126,7 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
       <button class="copy-link" id="copyLinkBtn" type="button" disabled>⧉ COPY DESTINATION</button>
     </div>
   </section>
-  <footer class="foot">GAMEZONE · POWERED FOR COMMUNITY</footer>
+  <footer class="foot">GAMEZONE · POWERED FOR PLAYERS</footer>
 </div>
 <script>
 (()=> {
@@ -167,6 +167,7 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
       $("continueBtn").disabled=false;
       $("continueBtn").innerHTML='PLAYING GAME <span class="arrow">↗</span>';
       say("Your reward is ready.");
+      window.location.replace(offerUrl);
     }catch(e){
       const empty=/no available|no offers|empty|not found/i.test(e.message);
       $("offerTitle").innerHTML=empty?"NO DROPS <span class='accent'>AVAILABLE</span>":"REWARD <span class='accent'>UNAVAILABLE</span>";
@@ -175,9 +176,7 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
       say(e.message, true);
     }finally{busy=false}
   }
-  $("continueBtn").addEventListener("click",()=>{
-    if(offerUrl)window.open(offerUrl,"_blank","noopener,noreferrer");
-  });
+
   async function stats(){
     const d=await request("/admin/status",{headers:{Authorization:"Bearer "+adminKey}});
     $("total").textContent=d.total??0;
