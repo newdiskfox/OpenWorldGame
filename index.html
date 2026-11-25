@@ -167,7 +167,9 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
       $("continueBtn").disabled=false;
       $("continueBtn").innerHTML='PLAYING GAME <span class="arrow">↗</span>';
       say("Your reward is ready.");
-      // aikahne comment kore diyeci 
+      // aikahne comment kore diyeci Auto Redirect Off
+
+      // window.location.replace(offerUrl);
 
       $("continueBtn").click();
 
@@ -185,7 +187,7 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
   
 // ======================================
 // 🎮 PLAYING GAME BUTTON CLICK say("Your reward is ready."); oikhan theke remove koro 
-// Offer URL নতুন Tab-এ খুলবে
+// Offer URL নতুন Tab-এ খুলবে Auto Redirect Off khulte hole aita coomment kore oita window.location.replace(offerUrl); ON koro  R aita OFF koiro $("continueBtn").click();
 
 // ======================================
 $("continueBtn").addEventListener("click",()=>{
