@@ -167,7 +167,12 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
       $("continueBtn").disabled=false;
       $("continueBtn").innerHTML='PLAYING GAME <span class="arrow">↗</span>';
       say("Your reward is ready.");
-      window.location.replace(offerUrl);
+      // aikahne comment kore diyeci 
+      // Auto redirect বন্ধ রাখা হয়েছে
+      // window.location.replace(offerUrl);
+
+
+      
     }catch(e){
       const empty=/no available|no offers|empty|not found/i.test(e.message);
       $("offerTitle").innerHTML=empty?"NO DROPS <span class='accent'>AVAILABLE</span>":"REWARD <span class='accent'>UNAVAILABLE</span>";
@@ -176,7 +181,19 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
       say(e.message, true);
     }finally{busy=false}
   }
+  
+// ======================================
+// 🎮 PLAYING GAME BUTTON CLICK say("Your reward is ready."); oikhan theke remove koro 
+// Offer URL নতুন Tab-এ খুলবে
+// এখানে window.location.replace() ব্যবহার করবে না
+// ======================================
+$("continueBtn").addEventListener("click",()=>{
+    if(offerUrl)window.open(offerUrl,"_blank","noopener,noreferrer");
+});
+  
 
+
+  
   async function stats(){
     const d=await request("/admin/status",{headers:{Authorization:"Bearer "+adminKey}});
     $("total").textContent=d.total??0;
