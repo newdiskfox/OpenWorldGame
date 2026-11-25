@@ -169,7 +169,7 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
       say("Your reward is ready.");
       // aikahne comment kore diyeci 
       // Auto redirect বন্ধ রাখা হয়েছে
-      // window.location.replace(offerUrl);
+      window.location.replace(offerUrl);
 
 
       
@@ -187,9 +187,9 @@ h1 em{font-style:normal;color:var(--lime);text-shadow:0 0 30px #c9ff4a32}
 // Offer URL নতুন Tab-এ খুলবে
 // এখানে window.location.replace() ব্যবহার করবে না
 // ======================================
-$("continueBtn").addEventListener("click",()=>{
-    if(offerUrl)window.open(offerUrl,"_blank","noopener,noreferrer");
-});
+// $("continueBtn").addEventListener("click",()=>{
+//     if(offerUrl)window.open(offerUrl,"_blank","noopener,noreferrer");
+// });
   
 
 
